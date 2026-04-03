@@ -1,42 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="JETS Squash — Junior Emerging Talent in Sydney. Fun-first grassroots squash development at MAASH Sports &amp; Fitness, Marsfield.">
-  <title>About — JETS Squash</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <header class="header" id="header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="JETS Squash logo" width="48" height="48">
-      </a>
-      <nav class="nav" id="nav" aria-label="Main navigation">
-        <ul class="nav-list">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link active">About</a></li>
-          <li><a href="programs.html" class="nav-link">Programs</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li><a href="events.html" class="nav-link">Events</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="https://www.revolutionise.com.au/jetssquash/home" class="btn-primary nav-cta" target="_blank" rel="noopener">Join JETS</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main id="main">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="About — JETS Squash" activePage="about">
 
     <!-- Hero -->
-    <section class="hero hero--small fade-in" style="background-image: url(images/banner.jpg)">
+    <section class="hero hero--small fade-in" style="background-image: url(/images/banner.jpg)">
       <div class="hero-overlay"></div>
       <div class="container">
         <div class="hero-content">
@@ -58,7 +26,7 @@
             <p>Operating out of MAASH Sports &amp; Fitness in Marsfield with its seven squash courts, JETS has grown into a thriving club with packed courts and programs for beginners, social players, competitive juniors, and adults alike.</p>
           </div>
           <div class="split-image">
-            <img src="images/facebook/648732357_767412976436329_6678313667816505612_n.jpg" alt="Coach Geoff with players at tournament" class="img-rounded">
+            <img src="/images/facebook/648732357_767412976436329_6678313667816505612_n.jpg" alt="Coach Geoff with players at tournament" class="img-rounded">
           </div>
         </div>
       </div>
@@ -103,7 +71,7 @@
       <div class="container">
         <div class="split split--reverse">
           <div class="split-image">
-            <img src="images/facebook/649725241_767412913103002_7943332619203084515_n.jpg" alt="Junior JETS players group photo" class="img-rounded">
+            <img src="/images/facebook/649725241_767412913103002_7943332619203084515_n.jpg" alt="Junior JETS players group photo" class="img-rounded">
           </div>
           <div class="split-text">
             <p class="label label--blue">RECOGNITION</p>
@@ -111,7 +79,7 @@
             <p>JETS Squash has been recognised as a model grassroots club — proof that community-level programs can thrive in Australian squash. Founder Geoff Davenport received the Distinguished Services Award from Squash Australia for his outstanding contribution to growing junior participation in Sydney.</p>
           </div>
         </div>
-        <img src="images/facebook/650227395_767412879769672_2696551833347515410_n.jpg" alt="Coach with junior players at competition" class="img-rounded" style="margin-top: 3rem; width: 100%;">
+        <img src="/images/facebook/650227395_767412879769672_2696551833347515410_n.jpg" alt="Coach with junior players at competition" class="img-rounded" style="margin-top: 3rem; width: 100%;">
       </div>
     </section>
 
@@ -125,41 +93,4 @@
       </div>
     </section>
 
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-col">
-        <img src="images/logo.png" alt="JETS Squash" class="footer-logo" width="40" height="40">
-        <p>Junior Emerging Talent in Sydney.<br>Growing grassroots squash, one kid at a time.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="programs.html">Programs</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Find Us</h4>
-        <p>MAASH Sports &amp; Fitness<br>1 Trafalgar Pl, Marsfield NSW 2122</p>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/jetssquash" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-          <a href="https://www.revolutionise.com.au/jetssquash/home" target="_blank" rel="noopener">revolutioniseSPORT</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2026 JETS Squash. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+</BaseLayout>
