@@ -1,4 +1,6 @@
 ---
+import { asset } from '../utils';
+
 interface Props {
   title: string;
   subtitle?: string;
@@ -12,7 +14,7 @@ const rawBase = import.meta.env.BASE_URL;
 const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 const resolvedCtaHref = ctaHref && !ctaHref.startsWith('http') ? `${base}${ctaHref}` : ctaHref;
 ---
-<section class:list={["hero", "fade-in", { "hero--small": small }]} style={`background-image: url(${backgroundImage})`}>
+<section class:list={["hero", "fade-in", { "hero--small": small }]} style={`background-image: url(${asset(backgroundImage)})`}>
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">

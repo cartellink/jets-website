@@ -1,4 +1,6 @@
 ---
+import { asset } from '../utils';
+
 interface Props {
   reverse?: boolean;
   sectionClass?: string;
@@ -14,7 +16,7 @@ const { reverse = false, sectionClass = '', image, imageAlt } = Astro.props;
         <slot />
       </div>
       <div class="split-image">
-        <img src={image} alt={imageAlt} class="img-rounded">
+        <img src={asset(image)} alt={imageAlt} class="img-rounded">
       </div>
     </div>
   </div>

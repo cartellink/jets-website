@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SplitSection from '../components/SplitSection.astro';
 import Section from '../components/Section.astro';
+import { asset } from '../utils';
 ---
 <BaseLayout title="About — JETS Squash" activePage="about">
 
@@ -56,7 +57,7 @@ import Section from '../components/Section.astro';
       <div class="container">
         <div class="split split--reverse">
           <div class="split-image">
-            <img src="/images/facebook/649725241_767412913103002_7943332619203084515_n.jpg" alt="Junior JETS players group photo" class="img-rounded">
+            <img src={asset('images/facebook/649725241_767412913103002_7943332619203084515_n.jpg')} alt="Junior JETS players group photo" class="img-rounded">
           </div>
           <div class="split-text">
             <p class="label label--blue">RECOGNITION</p>
@@ -64,7 +65,7 @@ import Section from '../components/Section.astro';
             <p>JETS Squash has been recognised as a model grassroots club — proof that community-level programs can thrive in Australian squash. Founder Geoff Davenport received the Distinguished Services Award from Squash Australia for his outstanding contribution to growing junior participation in Sydney.</p>
           </div>
         </div>
-        <img src="/images/facebook/650227395_767412879769672_2696551833347515410_n.jpg" alt="Coach with junior players at competition" class="img-rounded" style="margin-top: 3rem; width: 100%;">
+        <img src={asset('images/facebook/650227395_767412879769672_2696551833347515410_n.jpg')} alt="Coach with junior players at competition" class="img-rounded" style="margin-top: 3rem; width: 100%;">
       </div>
     </section>
 

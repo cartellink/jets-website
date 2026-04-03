@@ -1,4 +1,6 @@
 ---
+import { asset } from '../utils';
+
 interface Props {
   src: string;
   alt: string;
@@ -6,5 +8,5 @@ interface Props {
 const { src, alt } = Astro.props;
 ---
 <div class="gallery-item">
-  <img src={src} alt={alt} loading="lazy">
+  <img src={asset(src)} alt={alt} loading="lazy">
 </div>

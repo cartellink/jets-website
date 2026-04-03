@@ -6,6 +6,7 @@ import SplitSection from '../components/SplitSection.astro';
 import Card from '../components/Card.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import Section from '../components/Section.astro';
+import { asset } from '../utils';
 
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
@@ -63,11 +64,11 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     <Section>
       <h2>Our Community</h2>
       <div class="mosaic">
-        <img src="/images/facebook/473140704_447780261732937_6967452162561479841_n.jpg" alt="Junior player celebrating on court">
-        <img src="/images/facebook/646516396_763778290133131_6976107515536203217_n.jpg" alt="Junior player lunging for the ball on court">
-        <img src="/images/facebook/648732357_767412976436329_6678313667816505612_n.jpg" alt="Coach Geoff with players at tournament">
-        <img src="/images/facebook/473072185_447780295066267_5268909810549177595_n.jpg" alt="Young player celebrating victory">
-        <img src="/images/facebook/649725241_767412913103002_7943332619203084515_n.jpg" alt="Junior JETS players group photo">
+        <img src={asset('images/facebook/473140704_447780261732937_6967452162561479841_n.jpg')} alt="Junior player celebrating on court">
+        <img src={asset('images/facebook/646516396_763778290133131_6976107515536203217_n.jpg')} alt="Junior player lunging for the ball on court">
+        <img src={asset('images/facebook/648732357_767412976436329_6678313667816505612_n.jpg')} alt="Coach Geoff with players at tournament">
+        <img src={asset('images/facebook/473072185_447780295066267_5268909810549177595_n.jpg')} alt="Young player celebrating victory">
+        <img src={asset('images/facebook/649725241_767412913103002_7943332619203084515_n.jpg')} alt="Junior JETS players group photo">
       </div>
     </Section>
 

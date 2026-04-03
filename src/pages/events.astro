@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import EventCard from '../components/EventCard.astro';
+import { asset } from '../utils';
 ---
 <BaseLayout title="Events &amp; News — JETS Squash" description="JETS Squash events, upcoming competitions and recent results — junior squash in Marsfield, Sydney." activePage="events">
 
@@ -45,12 +46,12 @@ import EventCard from '../components/EventCard.astro';
         <a href="https://www.sportyhq.com/tournament/view/2024-JETS-Squash-Junior-Open-S" target="_blank" rel="noopener">View full results on SportyHQ &rarr;</a>
       </div>
       <div class="result-card">
-        <img src="/images/facebook/651651325_773336329177327_8650844381791859242_n.jpg" alt="JETS team at competition with banner">
+        <img src={asset('images/facebook/651651325_773336329177327_8650844381791859242_n.jpg')} alt="JETS team at competition with banner">
         <h3>Squash Australia Team Selections</h3>
         <p>Congratulations to our JETS players selected for state and national representation.</p>
       </div>
       <div class="result-card">
-        <img src="/images/JETS Sunday.jpeg" alt="JETS Sunday 2026 schedule">
+        <img src={asset('images/JETS Sunday.jpeg')} alt="JETS Sunday 2026 schedule">
         <h3>JETS Sunday 2026 Schedule</h3>
         <p>Check out the 2026 JETS Sunday events schedule — monthly competitions and community events throughout the year.</p>
       </div>
