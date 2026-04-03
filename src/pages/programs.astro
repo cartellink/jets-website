@@ -1,89 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SplitSection from '../components/SplitSection.astro';
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 ---
 <BaseLayout title="Programs — JETS Squash" description="JETS Squash programs — Junior Development, Monthly Skill Comps, JETS Junior Open, and Social & Adult Play at MAASH Sports & Fitness, Marsfield." activePage="programs">
 
-    <!-- Hero -->
-    <section class="hero hero--small fade-in" style="background-image: url(/images/facebook/473443356_447780278399602_94195473102618945_n.jpg)">
-      <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content">
-          <h1>Our Programs</h1>
-          <p>Something for everyone — from first-timers to state competitors</p>
-        </div>
-      </div>
-    </section>
+    <Hero
+      title="Our Programs"
+      subtitle="Something for everyone — from first-timers to state competitors"
+      backgroundImage="/images/facebook/473443356_447780278399602_94195473102618945_n.jpg"
+      small
+    />
 
-    <!-- Junior Development -->
-    <section class="section fade-in">
-      <div class="container">
-        <div class="split">
-          <div class="split-text">
-            <p class="label">JUNIORS</p>
-            <h2>Junior Development</h2>
-            <p>For school-age kids new to squash — no experience necessary. We'll lend you a racquet and get you started.</p>
-            <p>Fun activities, balloon squash, games-based learning. The goal is simple: give kids a great time on court so they want to come back.</p>
-            <a href="contact.html" class="btn-primary">Book a Trial Session</a>
-          </div>
-          <div class="split-image">
-            <img src="/images/facebook/473443356_447780278399602_94195473102618945_n.jpg" alt="Kids learning squash through balloon games on court" class="img-rounded">
-          </div>
-        </div>
-      </div>
-    </section>
+    <SplitSection image="/images/facebook/473443356_447780278399602_94195473102618945_n.jpg" imageAlt="Kids learning squash through balloon games on court">
+      <p class="label">JUNIORS</p>
+      <h2>Junior Development</h2>
+      <p>For school-age kids new to squash — no experience necessary. We'll lend you a racquet and get you started.</p>
+      <p>Fun activities, balloon squash, games-based learning. The goal is simple: give kids a great time on court so they want to come back.</p>
+      <a href={`${base}contact.html`} class="btn-primary">Book a Trial Session</a>
+    </SplitSection>
 
-    <!-- Monthly Skill Competitions -->
-    <section class="section section--light fade-in">
-      <div class="container">
-        <div class="split split--reverse">
-          <div class="split-image">
-            <img src="/images/facebook/649116004_767413059769654_6412016940392393593_n.jpg" alt="Coach Geoff with junior players and trophies" class="img-rounded">
-          </div>
-          <div class="split-text">
-            <p class="label label--blue">COMPETITIONS</p>
-            <h2>Monthly Skill Comps</h2>
-            <p>One Sunday per month at MAASH, our skill-based competitions ensure every kid gets at least three games with minimal waiting between matches.</p>
-            <p>Divisions for all ability levels — whether you're just learning to rally or competing at state level.</p>
-            <a href="events.html" class="btn-secondary">See Upcoming Events</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SplitSection reverse sectionClass="section--light" image="/images/facebook/649116004_767413059769654_6412016940392393593_n.jpg" imageAlt="Coach Geoff with junior players and trophies">
+      <p class="label label--blue">COMPETITIONS</p>
+      <h2>Monthly Skill Comps</h2>
+      <p>One Sunday per month at MAASH, our skill-based competitions ensure every kid gets at least three games with minimal waiting between matches.</p>
+      <p>Divisions for all ability levels — whether you're just learning to rally or competing at state level.</p>
+      <a href={`${base}events.html`} class="btn-secondary">See Upcoming Events</a>
+    </SplitSection>
 
-    <!-- JETS Junior Open -->
-    <section class="section fade-in">
-      <div class="container">
-        <div class="split">
-          <div class="split-text">
-            <p class="label label--green">TOURNAMENT</p>
-            <h2>JETS Junior Open</h2>
-            <p>Our annual tournament at MAASH brings together juniors from across Sydney and beyond.</p>
-            <p>Multiple divisions from beginners who are still learning to serve, right through to competitive players. A state championship with a difference — inclusive and welcoming.</p>
-            <a href="https://www.revolutionise.com.au/jetssquash/events/" class="btn-primary" target="_blank" rel="noopener">Register on revolutioniseSPORT</a>
-          </div>
-          <div class="split-image">
-            <img src="/images/facebook/646574231_763778120133148_5577528663225417962_n.jpg" alt="Junior player in competitive match" class="img-rounded">
-          </div>
-        </div>
-      </div>
-    </section>
+    <SplitSection image="/images/facebook/646574231_763778120133148_5577528663225417962_n.jpg" imageAlt="Junior player in competitive match">
+      <p class="label label--green">TOURNAMENT</p>
+      <h2>JETS Junior Open</h2>
+      <p>Our annual tournament at MAASH brings together juniors from across Sydney and beyond.</p>
+      <p>Multiple divisions from beginners who are still learning to serve, right through to competitive players. A state championship with a difference — inclusive and welcoming.</p>
+      <a href="https://www.revolutionise.com.au/jetssquash/events/" class="btn-primary" target="_blank" rel="noopener">Register on revolutioniseSPORT</a>
+    </SplitSection>
 
-    <!-- Social & Adult Play -->
-    <section class="section section--dark fade-in">
-      <div class="container">
-        <div class="split split--reverse">
-          <div class="split-image">
-            <img src="/images/facebook/646516396_763778290133131_6976107515536203217_n.jpg" alt="Junior player lunging for the ball on court" class="img-rounded">
-          </div>
-          <div class="split-text">
-            <p class="label label--yellow">ADULTS</p>
-            <h2>Social &amp; Adult Play</h2>
-            <p>JETS isn't just for kids — adults of all levels are welcome.</p>
-            <p>Social pennants, casual hit-ups, and a welcoming community. Join the growing JETS family on court.</p>
-            <a href="contact.html" class="btn-primary btn-primary--white">Get in Touch</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SplitSection reverse sectionClass="section--dark" image="/images/facebook/646516396_763778290133131_6976107515536203217_n.jpg" imageAlt="Junior player lunging for the ball on court">
+      <p class="label label--yellow">ADULTS</p>
+      <h2>Social &amp; Adult Play</h2>
+      <p>JETS isn't just for kids — adults of all levels are welcome.</p>
+      <p>Social pennants, casual hit-ups, and a welcoming community. Join the growing JETS family on court.</p>
+      <a href={`${base}contact.html`} class="btn-primary btn-primary--white">Get in Touch</a>
+    </SplitSection>
 
 </BaseLayout>

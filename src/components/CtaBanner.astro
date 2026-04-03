@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ctaText: string;
+  ctaHref: string;
+}
+const { title, description, ctaText, ctaHref } = Astro.props;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
+const resolvedCtaHref = !ctaHref.startsWith('http') ? `${base}${ctaHref}` : ctaHref;
+---
+<div class="cta-banner fade-in">
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a href={resolvedCtaHref} class="btn-primary">{ctaText}</a>
+</div>

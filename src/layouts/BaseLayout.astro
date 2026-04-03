@@ -8,6 +8,8 @@ interface Props {
 }
 
 const { title, description = "JETS Squash — Junior Emerging Talent in Sydney. Fun-first grassroots squash development at MAASH Sports & Fitness, Marsfield.", activePage } = Astro.props;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 ---
 
 <!DOCTYPE html>
@@ -24,17 +26,17 @@ const { title, description = "JETS Squash — Junior Emerging Talent in Sydney. 
 
   <header class="header" id="header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">
+      <a href={`${base}index.html`} class="logo">
         <img src="/images/logo.png" alt="JETS Squash logo" width="48" height="48">
       </a>
       <nav class="nav" id="nav" aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a href="index.html" class:list={["nav-link", { active: activePage === "home" }]}>Home</a></li>
-          <li><a href="about.html" class:list={["nav-link", { active: activePage === "about" }]}>About</a></li>
-          <li><a href="programs.html" class:list={["nav-link", { active: activePage === "programs" }]}>Programs</a></li>
-          <li><a href="gallery.html" class:list={["nav-link", { active: activePage === "gallery" }]}>Gallery</a></li>
-          <li><a href="events.html" class:list={["nav-link", { active: activePage === "events" }]}>Events</a></li>
-          <li><a href="contact.html" class:list={["nav-link", { active: activePage === "contact" }]}>Contact</a></li>
+          <li><a href={`${base}index.html`} class:list={["nav-link", { active: activePage === "home" }]}>Home</a></li>
+          <li><a href={`${base}about.html`} class:list={["nav-link", { active: activePage === "about" }]}>About</a></li>
+          <li><a href={`${base}programs.html`} class:list={["nav-link", { active: activePage === "programs" }]}>Programs</a></li>
+          <li><a href={`${base}gallery.html`} class:list={["nav-link", { active: activePage === "gallery" }]}>Gallery</a></li>
+          <li><a href={`${base}events.html`} class:list={["nav-link", { active: activePage === "events" }]}>Events</a></li>
+          <li><a href={`${base}contact.html`} class:list={["nav-link", { active: activePage === "contact" }]}>Contact</a></li>
         </ul>
       </nav>
       <a href="https://www.revolutionise.com.au/jetssquash/home" class="btn-primary nav-cta" target="_blank" rel="noopener">Join JETS</a>
@@ -57,12 +59,12 @@ const { title, description = "JETS Squash — Junior Emerging Talent in Sydney. 
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="programs.html">Programs</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href={`${base}index.html`}>Home</a></li>
+          <li><a href={`${base}about.html`}>About</a></li>
+          <li><a href={`${base}programs.html`}>Programs</a></li>
+          <li><a href={`${base}gallery.html`}>Gallery</a></li>
+          <li><a href={`${base}events.html`}>Events</a></li>
+          <li><a href={`${base}contact.html`}>Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">

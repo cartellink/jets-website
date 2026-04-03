@@ -1,72 +1,57 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SplitSection from '../components/SplitSection.astro';
+import Section from '../components/Section.astro';
 ---
 <BaseLayout title="About — JETS Squash" activePage="about">
 
-    <!-- Hero -->
-    <section class="hero hero--small fade-in" style="background-image: url(/images/banner.jpg)">
-      <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content">
-          <h1>About JETS Squash</h1>
-          <p>Junior Emerging Talent in Sydney</p>
+    <Hero
+      title="About JETS Squash"
+      subtitle="Junior Emerging Talent in Sydney"
+      backgroundImage="/images/banner.jpg"
+      small
+    />
+
+    <SplitSection image="/images/facebook/648732357_767412976436329_6678313667816505612_n.jpg" imageAlt="Coach Geoff with players at tournament">
+      <p class="label">OUR STORY</p>
+      <h2>How It All Started</h2>
+      <p>Geoff, a former high-performance squash coach, saw Australia's grassroots participation crisis first-hand. Rather than staying in the elite pathway, he made a deliberate switch to community-level coaching — where the real impact happens.</p>
+      <p>Together with Yan, they founded JETS with a clear mission: catch kids early, before high school, before they commit to other sports, and give them a fun, pressure-free introduction to squash.</p>
+      <p>Operating out of MAASH Sports &amp; Fitness in Marsfield with its seven squash courts, JETS has grown into a thriving club with packed courts and programs for beginners, social players, competitive juniors, and adults alike.</p>
+    </SplitSection>
+
+    <Section class="section--dark">
+      <h2>What We Believe</h2>
+      <div class="values">
+        <div class="value">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+            <polygon points="12,8 40,24 12,40" fill="#F26522"/>
+          </svg>
+          <h3>Fun First</h3>
+          <p>We believe the best way to grow the game is to make it fun. Play-based activities, games, and minimal focus on technique for beginners. The skills come naturally when kids are having a great time.</p>
+        </div>
+        <div class="value">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+            <circle cx="24" cy="14" r="6" fill="#2B7FD4"/>
+            <path d="M8 40 Q8 28 24 28 Q40 28 40 40" fill="#2B7FD4"/>
+            <line x1="8" y1="34" x2="4" y2="28" stroke="#2B7FD4" stroke-width="3" stroke-linecap="round"/>
+            <line x1="40" y1="34" x2="44" y2="28" stroke="#2B7FD4" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <h3>Everyone Welcome</h3>
+          <p>All ages, all skill levels, all backgrounds. Whether you're picking up a racquet for the first time or training for state selection, there's a place for you at JETS.</p>
+        </div>
+        <div class="value">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+            <line x1="24" y1="40" x2="24" y2="8" stroke="#3EAF6E" stroke-width="4" stroke-linecap="round"/>
+            <polyline points="12,20 24,8 36,20" fill="none" stroke="#3EAF6E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Grow the Game</h3>
+          <p>Squash in Australia needs more players at every level. JETS is doing its part by building a pipeline from first-time beginners to competitive juniors, right here in Sydney.</p>
         </div>
       </div>
-    </section>
+    </Section>
 
-    <!-- The JETS Story -->
-    <section class="section fade-in">
-      <div class="container">
-        <div class="split">
-          <div class="split-text">
-            <p class="label">OUR STORY</p>
-            <h2>How It All Started</h2>
-            <p>Geoff, a former high-performance squash coach, saw Australia's grassroots participation crisis first-hand. Rather than staying in the elite pathway, he made a deliberate switch to community-level coaching — where the real impact happens.</p>
-            <p>Together with Yan, they founded JETS with a clear mission: catch kids early, before high school, before they commit to other sports, and give them a fun, pressure-free introduction to squash.</p>
-            <p>Operating out of MAASH Sports &amp; Fitness in Marsfield with its seven squash courts, JETS has grown into a thriving club with packed courts and programs for beginners, social players, competitive juniors, and adults alike.</p>
-          </div>
-          <div class="split-image">
-            <img src="/images/facebook/648732357_767412976436329_6678313667816505612_n.jpg" alt="Coach Geoff with players at tournament" class="img-rounded">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Our Philosophy -->
-    <section class="section section--dark fade-in">
-      <div class="container">
-        <h2>What We Believe</h2>
-        <div class="values">
-          <div class="value">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
-              <polygon points="12,8 40,24 12,40" fill="#F26522"/>
-            </svg>
-            <h3>Fun First</h3>
-            <p>We believe the best way to grow the game is to make it fun. Play-based activities, games, and minimal focus on technique for beginners. The skills come naturally when kids are having a great time.</p>
-          </div>
-          <div class="value">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
-              <circle cx="24" cy="14" r="6" fill="#2B7FD4"/>
-              <path d="M8 40 Q8 28 24 28 Q40 28 40 40" fill="#2B7FD4"/>
-              <line x1="8" y1="34" x2="4" y2="28" stroke="#2B7FD4" stroke-width="3" stroke-linecap="round"/>
-              <line x1="40" y1="34" x2="44" y2="28" stroke="#2B7FD4" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-            <h3>Everyone Welcome</h3>
-            <p>All ages, all skill levels, all backgrounds. Whether you're picking up a racquet for the first time or training for state selection, there's a place for you at JETS.</p>
-          </div>
-          <div class="value">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
-              <line x1="24" y1="40" x2="24" y2="8" stroke="#3EAF6E" stroke-width="4" stroke-linecap="round"/>
-              <polyline points="12,20 24,8 36,20" fill="none" stroke="#3EAF6E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <h3>Grow the Game</h3>
-            <p>Squash in Australia needs more players at every level. JETS is doing its part by building a pipeline from first-time beginners to competitive juniors, right here in Sydney.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Recognition -->
     <section class="section fade-in">
       <div class="container">
         <div class="split split--reverse">
@@ -83,14 +68,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- Where We Play -->
-    <section class="section section--dark fade-in">
-      <div class="container" style="text-align: center;">
+    <Section class="section--dark">
+      <div style="text-align: center;">
         <h2>Where We Play</h2>
         <p>MAASH Sports &amp; Fitness is our home — a public multi-sports centre with seven dedicated squash courts in Marsfield, Sydney.</p>
         <p>1 Trafalgar Pl, Marsfield NSW 2122</p>
         <a href="https://maash.com.au" class="btn-primary" target="_blank" rel="noopener">Visit MAASH</a>
       </div>
-    </section>
+    </Section>
 
 </BaseLayout>

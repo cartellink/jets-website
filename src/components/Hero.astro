@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  backgroundImage: string;
+  small?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
+}
+const { title, subtitle, backgroundImage, small = false, ctaText, ctaHref } = Astro.props;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
+const resolvedCtaHref = ctaHref && !ctaHref.startsWith('http') ? `${base}${ctaHref}` : ctaHref;
+---
+<section class:list={["hero", "fade-in", { "hero--small": small }]} style={`background-image: url(${backgroundImage})`}>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1>{title}</h1>
+      {subtitle && <p>{subtitle}</p>}
+      {ctaText && resolvedCtaHref && <a href={resolvedCtaHref} class="btn-primary">{ctaText}</a>}
+    </div>
+  </div>
+</section>

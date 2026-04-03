@@ -1,74 +1,38 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import GalleryItem from '../components/GalleryItem.astro';
 ---
 <BaseLayout title="Gallery — JETS Squash" description="Gallery — photos and moments from the JETS Squash community in Sydney." activePage="gallery">
 
-    <!-- Hero -->
-    <section class="hero hero--small fade-in" style="background-image: url(/images/facebook/473140704_447780261732937_6967452162561479841_n.jpg)">
-      <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content">
-          <h1>Gallery</h1>
-          <p>Moments from the JETS community</p>
-        </div>
-      </div>
-    </section>
+    <Hero
+      title="Gallery"
+      subtitle="Moments from the JETS community"
+      backgroundImage="/images/facebook/473140704_447780261732937_6967452162561479841_n.jpg"
+      small
+    />
 
-    <!-- Gallery grid -->
-    <section class="section fade-in">
-      <div class="container">
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="/images/banner.jpg" alt="JETS juniors celebrating on court" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/473443356_447780278399602_94195473102618945_n.jpg" alt="Kids learning squash through balloon games" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/653955516_773336195844007_3682554097701585321_n.jpg" alt="Player wearing JETS Squash shirt" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/646574231_763778120133148_5577528663225417962_n.jpg" alt="Junior player in competitive match" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/649116004_767413059769654_6412016940392393593_n.jpg" alt="Coach Geoff with junior players and trophies" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/646516396_763778290133131_6976107515536203217_n.jpg" alt="Junior player lunging for the ball on court" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/473140704_447780261732937_6967452162561479841_n.jpg" alt="Young player celebrating on court" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/648732357_767412976436329_6678313667816505612_n.jpg" alt="Coach Geoff with players at tournament" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/649725241_767412913103002_7943332619203084515_n.jpg" alt="Junior JETS players group photo" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/650227395_767412879769672_2696551833347515410_n.jpg" alt="Coach with junior players at competition" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/473072185_447780295066267_5268909810549177595_n.jpg" alt="Young player celebrating victory" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/648682567_767413013102992_7786157155872871162_n.jpg" alt="Coach with young players at MAASH" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/472924413_447780298399600_3592752630622066200_n.jpg" alt="Kids learning squash basics on court" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/651651325_773336329177327_8650844381791859242_n.jpg" alt="JETS team at competition with banner" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/473588704_447780271732936_5881397384238519385_n.jpg" alt="Young player hitting balloon on court" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="/images/facebook/476458240_466899913154305_2024709453975853767_n (1).jpg" alt="JETS event day" loading="lazy">
-          </div>
-        </div>
+    <Section>
+      <div class="gallery-grid">
+        <GalleryItem src="/images/banner.jpg" alt="JETS juniors celebrating on court" />
+        <GalleryItem src="/images/facebook/473443356_447780278399602_94195473102618945_n.jpg" alt="Kids learning squash through balloon games" />
+        <GalleryItem src="/images/facebook/653955516_773336195844007_3682554097701585321_n.jpg" alt="Player wearing JETS Squash shirt" />
+        <GalleryItem src="/images/facebook/646574231_763778120133148_5577528663225417962_n.jpg" alt="Junior player in competitive match" />
+        <GalleryItem src="/images/facebook/649116004_767413059769654_6412016940392393593_n.jpg" alt="Coach Geoff with junior players and trophies" />
+        <GalleryItem src="/images/facebook/646516396_763778290133131_6976107515536203217_n.jpg" alt="Junior player lunging for the ball on court" />
+        <GalleryItem src="/images/facebook/473140704_447780261732937_6967452162561479841_n.jpg" alt="Young player celebrating on court" />
+        <GalleryItem src="/images/facebook/648732357_767412976436329_6678313667816505612_n.jpg" alt="Coach Geoff with players at tournament" />
+        <GalleryItem src="/images/facebook/649725241_767412913103002_7943332619203084515_n.jpg" alt="Junior JETS players group photo" />
+        <GalleryItem src="/images/facebook/650227395_767412879769672_2696551833347515410_n.jpg" alt="Coach with junior players at competition" />
+        <GalleryItem src="/images/facebook/473072185_447780295066267_5268909810549177595_n.jpg" alt="Young player celebrating victory" />
+        <GalleryItem src="/images/facebook/648682567_767413013102992_7786157155872871162_n.jpg" alt="Coach with young players at MAASH" />
+        <GalleryItem src="/images/facebook/472924413_447780298399600_3592752630622066200_n.jpg" alt="Kids learning squash basics on court" />
+        <GalleryItem src="/images/facebook/651651325_773336329177327_8650844381791859242_n.jpg" alt="JETS team at competition with banner" />
+        <GalleryItem src="/images/facebook/473588704_447780271732936_5881397384238519385_n.jpg" alt="Young player hitting balloon on court" />
+        <GalleryItem src="/images/facebook/476458240_466899913154305_2024709453975853767_n (1).jpg" alt="JETS event day" />
       </div>
-    </section>
+    </Section>
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer" aria-hidden="true">

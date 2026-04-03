@@ -1,0 +1,21 @@
+---
+interface Props {
+  reverse?: boolean;
+  sectionClass?: string;
+  image: string;
+  imageAlt: string;
+}
+const { reverse = false, sectionClass = '', image, imageAlt } = Astro.props;
+---
+<section class:list={["section", "fade-in", sectionClass]}>
+  <div class="container">
+    <div class:list={["split", { "split--reverse": reverse }]}>
+      <div class="split-text">
+        <slot />
+      </div>
+      <div class="split-image">
+        <img src={image} alt={imageAlt} class="img-rounded">
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,45 +1,39 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
 ---
 <BaseLayout title="Get Involved — JETS Squash" description="Get involved with JETS Squash — join us for a session, find our location at MAASH Sports & Fitness, and connect with the JETS community." activePage="contact">
 
-    <!-- Hero -->
-    <section class="hero hero--small fade-in" style="background-image: url(/images/banner.jpg)">
-      <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content">
-          <h1>Get Involved</h1>
-          <p>Come be part of the JETS family</p>
+    <Hero
+      title="Get Involved"
+      subtitle="Come be part of the JETS family"
+      backgroundImage="/images/banner.jpg"
+      small
+    />
+
+    <Section>
+      <h2>Three Simple Steps</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Come Try a Session</h3>
+          <p>No commitment, no experience needed. Just come along and have a hit. We'll lend you a racquet.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Join JETS</h3>
+          <p>Sign up through revolutioniseSPORT to become a member and access all our programs.</p>
+          <a href="https://www.revolutionise.com.au/jetssquash/home" class="btn-primary" target="_blank" rel="noopener">Sign Up</a>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Play, Compete, Grow</h3>
+          <p>From fun social sessions to monthly comps and state-level tournaments — your squash journey starts here.</p>
         </div>
       </div>
-    </section>
+    </Section>
 
-    <!-- How to Join -->
-    <section class="section fade-in">
-      <div class="container">
-        <h2>Three Simple Steps</h2>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">01</div>
-            <h3>Come Try a Session</h3>
-            <p>No commitment, no experience needed. Just come along and have a hit. We'll lend you a racquet.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">02</div>
-            <h3>Join JETS</h3>
-            <p>Sign up through revolutioniseSPORT to become a member and access all our programs.</p>
-            <a href="https://www.revolutionise.com.au/jetssquash/home" class="btn-primary" target="_blank" rel="noopener">Sign Up</a>
-          </div>
-          <div class="step">
-            <div class="step-number">03</div>
-            <h3>Play, Compete, Grow</h3>
-            <p>From fun social sessions to monthly comps and state-level tournaments — your squash journey starts here.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Find Us -->
     <section class="section section--light fade-in">
       <div class="container">
         <div class="split">
@@ -57,9 +51,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- Connect -->
-    <section class="section fade-in">
-      <div class="container" style="text-align: center;">
+    <Section>
+      <div style="text-align: center;">
         <h2>Connect With Us</h2>
         <div class="connect-links">
           <a href="https://www.facebook.com/jetssquash" class="connect-link" target="_blank" rel="noopener">
@@ -78,15 +71,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </a>
         </div>
       </div>
-    </section>
+    </Section>
 
-    <!-- Support JETS -->
-    <section class="section section--dark fade-in">
-      <div class="container" style="text-align: center;">
+    <Section class="section--dark">
+      <div style="text-align: center;">
         <h2>Support JETS</h2>
         <p>JETS Squash is a not-for-profit organisation. Your support helps us keep programs affordable and accessible for all kids.</p>
         <a href="https://asf.org.au/projects/nsw-squash-limited/jets-junior-squash-development" class="btn-primary" target="_blank" rel="noopener">Donate via Australian Sports Foundation</a>
       </div>
-    </section>
+    </Section>
 
 </BaseLayout>

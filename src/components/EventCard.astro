@@ -1,0 +1,28 @@
+---
+interface Props {
+  day: string;
+  month: string;
+  title: string;
+  location: string;
+  description: string;
+  ctaText: string;
+  ctaHref: string;
+}
+const { day, month, title, location, description, ctaText, ctaHref } = Astro.props;
+const isExternal = ctaHref.startsWith('http');
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
+const resolvedCtaHref = !isExternal ? `${base}${ctaHref}` : ctaHref;
+---
+<div class="event-card">
+  <div class="event-date">
+    <span class="event-day">{day}</span>
+    <span class="event-month">{month}</span>
+  </div>
+  <div class="event-body">
+    <h3>{title}</h3>
+    <p class="event-location">{location}</p>
+    <p>{description}</p>
+    <a href={resolvedCtaHref} class="btn-primary" {...(isExternal ? { target: "_blank", rel: "noopener" } : {})}>{ctaText}</a>
+  </div>
+</div>

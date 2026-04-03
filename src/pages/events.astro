@@ -1,72 +1,59 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import EventCard from '../components/EventCard.astro';
 ---
 <BaseLayout title="Events &amp; News — JETS Squash" description="JETS Squash events, upcoming competitions and recent results — junior squash in Marsfield, Sydney." activePage="events">
 
-    <!-- Hero -->
-    <section class="hero hero--small fade-in" style="background-image: url(/images/facebook/649116004_767413059769654_6412016940392393593_n.jpg)">
-      <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content">
-          <h1>Events &amp; News</h1>
-          <p>What's coming up and what's happened</p>
-        </div>
-      </div>
-    </section>
+    <Hero
+      title="Events &amp; News"
+      subtitle="What's coming up and what's happened"
+      backgroundImage="/images/facebook/649116004_767413059769654_6412016940392393593_n.jpg"
+      small
+    />
 
-    <!-- Upcoming Events -->
-    <section class="section fade-in">
-      <div class="container">
-        <p class="label label--blue">UPCOMING</p>
-        <h2>Upcoming Events</h2>
-        <div class="event-card">
-          <div class="event-date">
-            <span class="event-day">TBC</span>
-            <span class="event-month">2026</span>
-          </div>
-          <div class="event-body">
-            <h3>Monthly Skill Competition</h3>
-            <p class="event-location">MAASH Sports &amp; Fitness, Marsfield</p>
-            <p>Our regular monthly comp — skill-based format with at least 3 games per player. All junior levels welcome.</p>
-            <a href="https://www.revolutionise.com.au/jetssquash/events/" class="btn-primary" target="_blank" rel="noopener">Check Dates</a>
-          </div>
-        </div>
-        <div class="event-card">
-          <div class="event-date">
-            <span class="event-day">TBC</span>
-            <span class="event-month">2026</span>
-          </div>
-          <div class="event-body">
-            <h3>JETS Junior Open 2026</h3>
-            <p class="event-location">MAASH Sports &amp; Fitness, Marsfield</p>
-            <p>Annual tournament with divisions for all skill levels — from beginners still learning to serve through to competitive players.</p>
-            <a href="https://www.revolutionise.com.au/jetssquash/events/" class="btn-primary" target="_blank" rel="noopener">Register</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Section>
+      <p class="label label--blue">UPCOMING</p>
+      <h2>Upcoming Events</h2>
+      <EventCard
+        day="TBC"
+        month="2026"
+        title="Monthly Skill Competition"
+        location="MAASH Sports &amp; Fitness, Marsfield"
+        description="Our regular monthly comp — skill-based format with at least 3 games per player. All junior levels welcome."
+        ctaText="Check Dates"
+        ctaHref="https://www.revolutionise.com.au/jetssquash/events/"
+      />
+      <EventCard
+        day="TBC"
+        month="2026"
+        title="JETS Junior Open 2026"
+        location="MAASH Sports &amp; Fitness, Marsfield"
+        description="Annual tournament with divisions for all skill levels — from beginners still learning to serve through to competitive players."
+        ctaText="Register"
+        ctaHref="https://www.revolutionise.com.au/jetssquash/events/"
+      />
+    </Section>
 
-    <!-- Recent Results -->
-    <section class="section section--light fade-in">
-      <div class="container">
-        <p class="label label--green">RESULTS</p>
-        <h2>Recent Results</h2>
-        <div class="result-card">
-          <h3>2025 JETS MAASH Junior Open</h3>
-          <p>Held at MAASH Sports &amp; Fitness with multiple divisions from beginners to competitive. Congratulations to all participants!</p>
-          <a href="https://www.sportyhq.com/tournament/view/2024-JETS-Squash-Junior-Open-S" target="_blank" rel="noopener">View full results on SportyHQ &rarr;</a>
-        </div>
-        <div class="result-card">
-          <img src="/images/facebook/651651325_773336329177327_8650844381791859242_n.jpg" alt="JETS team at competition with banner">
-          <h3>Squash Australia Team Selections</h3>
-          <p>Congratulations to our JETS players selected for state and national representation.</p>
-        </div>
-        <div class="result-card">
-          <img src="/images/JETS Sunday.jpeg" alt="JETS Sunday 2026 schedule">
-          <h3>JETS Sunday 2026 Schedule</h3>
-          <p>Check out the 2026 JETS Sunday events schedule — monthly competitions and community events throughout the year.</p>
-        </div>
+    <Section class="section--light">
+      <p class="label label--green">RESULTS</p>
+      <h2>Recent Results</h2>
+      <div class="result-card">
+        <h3>2025 JETS MAASH Junior Open</h3>
+        <p>Held at MAASH Sports &amp; Fitness with multiple divisions from beginners to competitive. Congratulations to all participants!</p>
+        <a href="https://www.sportyhq.com/tournament/view/2024-JETS-Squash-Junior-Open-S" target="_blank" rel="noopener">View full results on SportyHQ &rarr;</a>
       </div>
-    </section>
+      <div class="result-card">
+        <img src="/images/facebook/651651325_773336329177327_8650844381791859242_n.jpg" alt="JETS team at competition with banner">
+        <h3>Squash Australia Team Selections</h3>
+        <p>Congratulations to our JETS players selected for state and national representation.</p>
+      </div>
+      <div class="result-card">
+        <img src="/images/JETS Sunday.jpeg" alt="JETS Sunday 2026 schedule">
+        <h3>JETS Sunday 2026 Schedule</h3>
+        <p>Check out the 2026 JETS Sunday events schedule — monthly competitions and community events throughout the year.</p>
+      </div>
+    </Section>
 
 </BaseLayout>
