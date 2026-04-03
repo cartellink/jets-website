@@ -1,0 +1,1574 @@
+/* ==========================================================================
+   JETS Squash — Version 1: Distinctive / Energetic
+   Complete CSS Foundation
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Google Fonts Import
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&family=DM+Sans:wght@400;600&display=swap');
+
+
+/* --------------------------------------------------------------------------
+   2. CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand colours */
+  --orange:       #F26522;
+  --orange-dark:  #D14E10;
+  --charcoal:     #1A1A1A;
+  --warm-grey:    #4A4A4A;
+  --off-white:    #F8F6F3;
+  --court-wood:   #C4983B;
+  --white:        #FFFFFF;
+  --blue:         #2B7FD4;
+  --green:        #3EAF6E;
+  --yellow:       #F5B731;
+
+  /* Typography */
+  --font-heading: 'Sora', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Type scale — V1 uses larger h1 for impact */
+  --h1: 3.5rem;
+  --h2: 2.25rem;
+  --h3: 1.5rem;
+  --h4: 1.25rem;
+
+  /* Misc */
+  --radius:     8px;
+  --transition: 0.3s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. Reset
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin:  0;
+  padding: 0;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. Base
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color:        var(--charcoal);
+  background:   var(--off-white);
+  line-height:  1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h1 { font-size: var(--h1); }
+h2 { font-size: var(--h2); }
+h3 { font-size: var(--h3); }
+h4 { font-size: var(--h4); }
+
+p {
+  max-width: 68ch;
+  line-height: 1.7;
+}
+
+strong { font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   6. Skip Link
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position:  absolute;
+  top:       -999px;
+  left:      1rem;
+  padding:   0.5rem 1rem;
+  background: var(--orange);
+  color:     var(--white);
+  font-weight: 600;
+  border-radius: var(--radius);
+  z-index:   9999;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Header
+   -------------------------------------------------------------------------- */
+.header {
+  position:   sticky;
+  top:        0;
+  z-index:    500;
+  background: var(--charcoal);
+  transition: box-shadow var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+
+.header-inner {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  max-width:       1200px;
+  margin:          0 auto;
+  padding:         0 1.5rem;
+  height:          72px;
+  gap:             1.5rem;
+}
+
+/* Logo */
+.logo img {
+  height:     48px;
+  width:      auto;
+  display:    block;
+  filter:     invert(1) brightness(2);
+}
+
+/* Primary nav */
+.nav-list {
+  display:     flex;
+  align-items: center;
+  gap:         2rem;
+  flex:        1;
+  justify-content: center;
+}
+
+.nav-link {
+  font-family:    var(--font-body);
+  font-weight:    600;
+  font-size:      0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color:          rgba(255, 255, 255, 0.7);
+  transition:     color var(--transition);
+  position:       relative;
+}
+
+.nav-link::after {
+  content:    '';
+  position:   absolute;
+  left:       0;
+  bottom:     -4px;
+  width:      0;
+  height:     2px;
+  background: var(--white);
+  transition: width var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--white);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Nav CTA */
+.nav-cta {
+  display:         inline-flex;
+  align-items:     center;
+  padding:         0.625rem 1.375rem;
+  background:      var(--orange);
+  color:           var(--white) !important;
+  font-family:     var(--font-body);
+  font-weight:     600;
+  font-size:       0.8125rem;
+  text-transform:  uppercase;
+  letter-spacing:  0.06em;
+  border-radius:   var(--radius);
+  white-space:     nowrap;
+  transition:      background var(--transition), transform var(--transition);
+}
+
+.nav-cta:hover {
+  background: var(--orange-dark);
+  transform:  translateY(-1px);
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. Mobile Nav / Hamburger
+   -------------------------------------------------------------------------- */
+.nav-toggle {
+  display:         none;
+  flex-direction:  column;
+  justify-content: center;
+  align-items:     center;
+  gap:             5px;
+  width:           44px;
+  height:          44px;
+  background:      none;
+  border:          none;
+  cursor:          pointer;
+  padding:         4px;
+  z-index:         600;
+  flex-shrink:     0;
+}
+
+.nav-toggle span {
+  display:          block;
+  width:            26px;
+  height:           2px;
+  background:       var(--white);
+  border-radius:    2px;
+  transition:       transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+  transform-origin: center;
+}
+
+/* X state when nav is open */
+.nav.nav-open ~ .nav-toggle span:nth-child(1),
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform:  translateY(7px) rotate(45deg);
+  background: var(--orange);
+}
+
+.nav.nav-open ~ .nav-toggle span:nth-child(2),
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity:   0;
+  transform: scaleX(0);
+}
+
+.nav.nav-open ~ .nav-toggle span:nth-child(3),
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform:  translateY(-7px) rotate(-45deg);
+  background: var(--orange);
+}
+
+/* Mobile drawer — reuses .nav element */
+@media (max-width: 768px) {
+  .nav {
+    position:       fixed;
+    top:            0;
+    right:          -100%;
+    width:          min(320px, 85vw);
+    height:         100vh;
+    background:     var(--charcoal);
+    z-index:        550;
+    display:        flex;
+    flex-direction: column;
+    padding:        5rem 2rem 2rem;
+    gap:            0.5rem;
+    transition:     right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y:     auto;
+  }
+
+  .nav.nav-open {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items:    flex-start;
+    gap:            0;
+  }
+
+  .nav-link {
+    font-family:    var(--font-heading);
+    font-weight:    700;
+    font-size:      1.5rem;
+    color:          var(--white);
+    padding:        0.75rem 0;
+    border-bottom:  1px solid rgba(255, 255, 255, 0.2);
+    opacity:        0;
+    transform:      translateX(20px);
+    transition:     opacity 0.3s ease, transform 0.3s ease, color 0.2s ease;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--orange);
+  }
+
+  /* Staggered fade-in for mobile links */
+  .nav.nav-open .nav-link { opacity: 1; transform: translateX(0); }
+  .nav.nav-open li:nth-child(1) .nav-link { transition-delay: 0.05s; }
+  .nav.nav-open li:nth-child(2) .nav-link { transition-delay: 0.10s; }
+  .nav.nav-open li:nth-child(3) .nav-link { transition-delay: 0.15s; }
+  .nav.nav-open li:nth-child(4) .nav-link { transition-delay: 0.20s; }
+  .nav.nav-open li:nth-child(5) .nav-link { transition-delay: 0.25s; }
+  .nav.nav-open li:nth-child(6) .nav-link { transition-delay: 0.30s; }
+}
+
+
+/* --------------------------------------------------------------------------
+   9. Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  position:            relative;
+  min-height:          85vh;
+  background-size:     cover;
+  background-position: center;
+  background-repeat:   no-repeat;
+  display:             flex;
+  align-items:         center;
+}
+
+.hero-overlay {
+  position:   absolute;
+  inset:      0;
+  background: rgba(26, 26, 26, 0.6);
+  z-index:    0;
+}
+
+/* Subtle noise texture on hero */
+.hero::after {
+  content:    '';
+  position:   absolute;
+  inset:      0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events:  none;
+  z-index:         0;
+}
+
+.hero .container {
+  position:   relative;
+  z-index:    1;
+}
+
+.hero-content {
+  color:      var(--white);
+  max-width:  760px;
+}
+
+/* Hero heading — clean, no border */
+.hero-content h1 {
+  font-size:      var(--h1);
+  margin-bottom:  1.25rem;
+  text-shadow:    0 2px 12px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.02em;
+}
+
+.hero-content p {
+  font-size:     1.125rem;
+  margin-bottom: 2rem;
+  color:         rgba(255, 255, 255, 0.9);
+  max-width:     55ch;
+}
+
+.hero-actions {
+  display:   flex;
+  gap:       1rem;
+  flex-wrap: wrap;
+}
+
+/* Small hero variant for inner pages */
+.hero--small {
+  min-height: 40vh;
+}
+
+.hero--small .hero-content h1 {
+  font-size: var(--h2);
+}
+
+
+/* --------------------------------------------------------------------------
+   10. Buttons
+   -------------------------------------------------------------------------- */
+.btn-primary,
+.btn-secondary {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             0.5rem;
+  padding:         0.875rem 2rem;
+  font-family:     var(--font-body);
+  font-weight:     700;
+  font-size:       0.875rem;
+  text-transform:  uppercase;
+  letter-spacing:  0.08em;
+  border-radius:   var(--radius);
+  transition:      background var(--transition), color var(--transition),
+                   border-color var(--transition), transform var(--transition),
+                   box-shadow var(--transition);
+  white-space:     nowrap;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color:      var(--white);
+  border:     2px solid var(--orange);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background:  var(--orange-dark);
+  border-color: var(--orange-dark);
+  transform:   translateY(-2px);
+  box-shadow:  0 4px 16px rgba(242, 101, 34, 0.35);
+}
+
+.btn-secondary {
+  background:  transparent;
+  color:       var(--charcoal);
+  border:      2px solid var(--charcoal);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--charcoal);
+  color:      var(--white);
+  transform:  translateY(-2px);
+}
+
+/* White variant for dark/hero backgrounds */
+.btn-secondary--white {
+  color:        var(--white);
+  border-color: var(--white);
+}
+
+.btn-secondary--white:hover,
+.btn-secondary--white:focus-visible {
+  background: var(--white);
+  color:      var(--charcoal);
+}
+
+/* White variant for primary button on dark backgrounds */
+.btn-primary--white {
+  background:   var(--white);
+  color:        var(--charcoal);
+  border-color: var(--white);
+}
+
+.btn-primary--white:hover,
+.btn-primary--white:focus-visible {
+  background:   var(--orange);
+  color:        var(--white);
+  border-color: var(--orange);
+}
+
+
+/* --------------------------------------------------------------------------
+   11. Stats Strip
+   -------------------------------------------------------------------------- */
+.stats-strip {
+  background:  var(--charcoal);
+  color:       var(--white);
+  padding:     3.5rem 0;
+  overflow:    hidden;
+}
+
+.stats-strip .container {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   2rem;
+  text-align:            center;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat strong {
+  display:       block;
+  font-family:   var(--font-heading);
+  font-size:     1.5rem;
+  font-weight:   700;
+  line-height:   1.2;
+  margin-bottom: 0.375rem;
+}
+
+/* Multi-color stat keywords */
+.stat:nth-child(1) strong { color: var(--orange); }
+.stat:nth-child(2) strong { color: var(--blue); }
+.stat:nth-child(3) strong { color: var(--green); }
+
+.stat span {
+  display:    block;
+  font-size:  0.875rem;
+  opacity:    0.85;
+}
+
+
+/* --------------------------------------------------------------------------
+   12. Section & Container
+   -------------------------------------------------------------------------- */
+.section {
+  padding: 5rem 0;
+}
+
+.section--dark {
+  background: var(--charcoal);
+  color:      var(--white);
+}
+
+.section--dark p { color: rgba(255, 255, 255, 0.85); }
+
+.section--orange {
+  background: var(--orange);
+  color:      var(--white);
+}
+
+.section--orange p { color: rgba(255, 255, 255, 0.9); }
+
+.section--light {
+  background: #EFEDE9;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-header--center {
+  text-align:  center;
+}
+
+.section-header--center p {
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin:    0 auto;
+  padding:   0 1.5rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   13. Two-Column Split Layout
+   -------------------------------------------------------------------------- */
+.split {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   3rem;
+  align-items:           center;
+}
+
+/* Reverse order on desktop */
+.split--reverse > *:first-child {
+  order: 2;
+}
+
+.split--reverse > *:last-child {
+  order: 1;
+}
+
+.split-text h2 {
+  margin-bottom: 1rem;
+}
+
+.split-text p {
+  margin-bottom: 1.5rem;
+}
+
+.split-text .label {
+  margin-bottom: 0.75rem;
+}
+
+.split-image img {
+  width:         100%;
+  height:        420px;
+  object-fit:    cover;
+  border-radius: var(--radius);
+}
+
+
+/* --------------------------------------------------------------------------
+   14. Cards
+   -------------------------------------------------------------------------- */
+.card {
+  background:    var(--white);
+  border-radius: var(--radius);
+  overflow:      hidden;
+  transition:    transform var(--transition), box-shadow var(--transition);
+}
+
+.card:nth-child(1) { border-top: 3px solid var(--orange); }
+.card:nth-child(2) { border-top: 3px solid var(--blue); }
+.card:nth-child(3) { border-top: 3px solid var(--green); }
+
+.card:hover {
+  transform:  translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width:       100%;
+  height:      220px;
+  object-fit:  cover;
+  display:     block;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-body h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  font-size:     0.9375rem;
+  color:         var(--warm-grey);
+  margin-bottom: 1rem;
+}
+
+.card-meta {
+  font-size:   0.8125rem;
+  font-weight: 600;
+  color:       var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.card-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap:                   2rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   15. Photo Mosaic
+   -------------------------------------------------------------------------- */
+.mosaic {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows:    repeat(2, 250px);
+  gap:                   0.75rem;
+}
+
+.mosaic img {
+  width:         100%;
+  height:        100%;
+  object-fit:    cover;
+  display:       block;
+  border-radius: var(--radius);
+  transition:    transform 0.4s ease;
+}
+
+.mosaic img:hover {
+  transform: scale(1.04);
+}
+
+/* First child spans 2 rows */
+.mosaic img:first-child {
+  grid-row: 1 / 3;
+}
+
+/* V1 touch: third item has orange left border accent */
+.mosaic img:nth-child(3) {
+  border-left: 4px solid var(--orange);
+}
+
+
+/* --------------------------------------------------------------------------
+   16. Gallery Grid (masonry-style columns)
+   -------------------------------------------------------------------------- */
+.gallery-grid {
+  columns:    3;
+  column-gap: 1rem;
+}
+
+.gallery-item {
+  break-inside:  avoid;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  overflow:      hidden;
+  cursor:        pointer;
+  display:       block;
+}
+
+.gallery-item img {
+  width:      100%;
+  display:    block;
+  transition: transform 0.35s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+
+/* --------------------------------------------------------------------------
+   17. Lightbox
+   -------------------------------------------------------------------------- */
+.lightbox {
+  display:         none;
+  position:        fixed;
+  inset:           0;
+  background:      rgba(0, 0, 0, 0.9);
+  z-index:         1000;
+  align-items:     center;
+  justify-content: center;
+  padding:         1rem;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+/* lightbox has img and close button directly inside */
+
+.lightbox img {
+  max-width:   90vw;
+  max-height:  90vh;
+  object-fit:  contain;
+  border-radius: var(--radius);
+}
+
+.lightbox-close {
+  position:    absolute;
+  top:         1.5rem;
+  right:       1.5rem;
+  color:       var(--white);
+  font-size:   2rem;
+  line-height: 1;
+  background:  none;
+  border:      none;
+  cursor:      pointer;
+  width:       2.5rem;
+  height:      2.5rem;
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+  transition:  opacity var(--transition);
+  z-index:     1001;
+}
+
+.lightbox-close:hover {
+  opacity: 0.7;
+}
+
+/* Prev / next navigation */
+.lightbox-prev,
+.lightbox-next {
+  position:    absolute;
+  top:         50%;
+  transform:   translateY(-50%);
+  color:       var(--white);
+  font-size:   2rem;
+  background:  rgba(255, 255, 255, 0.1);
+  border:      none;
+  cursor:      pointer;
+  width:       3rem;
+  height:      3rem;
+  border-radius: 50%;
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+  transition:  background var(--transition);
+}
+
+.lightbox-prev { left:  -4rem; }
+.lightbox-next { right: -4rem; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* --------------------------------------------------------------------------
+   18. Event Cards
+   -------------------------------------------------------------------------- */
+.event-card {
+  display:       flex;
+  flex-direction: row;
+  background:    var(--white);
+  border-radius: var(--radius);
+  overflow:      hidden;
+  transition:    box-shadow var(--transition);
+}
+
+.event-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Date badge — left column */
+.event-date {
+  flex-shrink:    0;
+  width:          90px;
+  background:     var(--orange);
+  color:          var(--white);
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  justify-content: center;
+  padding:        1.25rem 0.75rem;
+  text-align:     center;
+}
+
+.event-day {
+  font-family: var(--font-heading);
+  font-size:   2.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.event-month {
+  font-size:   0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top:  0.25rem;
+  opacity:     0.9;
+}
+
+/* Event body — right column */
+.event-body {
+  padding:        1.25rem 1.5rem;
+  flex:           1;
+  display:        flex;
+  flex-direction: column;
+  gap:            0.375rem;
+}
+
+.event-body h3 {
+  font-size:   var(--h4);
+  margin-bottom: 0.125rem;
+}
+
+.event-location {
+  font-size:   0.875rem;
+  color:       var(--warm-grey);
+  display:     flex;
+  align-items: center;
+  gap:         0.375rem;
+}
+
+.event-body p {
+  font-size: 0.9rem;
+  color:     var(--warm-grey);
+  margin-top: 0.25rem;
+}
+
+.event-body .btn-primary {
+  align-self: flex-start;
+  margin-top: 0.75rem;
+  padding:    0.625rem 1.25rem;
+  font-size:  0.8125rem;
+}
+
+.event-card + .event-card {
+  margin-top: 1.25rem;
+}
+
+.result-card + .result-card {
+  margin-top: 1.25rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   19. Steps
+   -------------------------------------------------------------------------- */
+.steps {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   2.5rem;
+}
+
+.step {
+  position: relative;
+  padding:  0 0 0 0.5rem;
+}
+
+/* V1 touch: oversized number sits behind text */
+.step-number {
+  position:    absolute;
+  top:         -0.75rem;
+  left:        -0.5rem;
+  font-family: var(--font-heading);
+  font-size:   5rem;
+  font-weight: 700;
+  color:       var(--orange);
+  opacity:     0.18;
+  line-height: 1;
+  z-index:     0;
+  user-select: none;
+}
+
+.step h3 {
+  position:      relative;
+  z-index:       1;
+  padding-top:   1rem;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  position:  relative;
+  z-index:   1;
+  font-size: 0.9375rem;
+  color:     var(--warm-grey);
+}
+
+
+/* --------------------------------------------------------------------------
+   20. Values
+   -------------------------------------------------------------------------- */
+.values {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   2rem;
+}
+
+.value {
+  text-align: center;
+  padding:    2rem 1.5rem;
+}
+
+.value svg {
+  width:   56px;
+  height:  56px;
+  margin:  0 auto 1.25rem;
+}
+
+.value h3 {
+  margin-bottom: 0.625rem;
+}
+
+.value p {
+  font-size:   0.9375rem;
+  color:       var(--warm-grey);
+  max-width:   28ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Multi-color value icons on dark background */
+.section--dark .value:nth-child(1) svg { color: var(--orange); }
+.section--dark .value:nth-child(2) svg { color: var(--blue); }
+.section--dark .value:nth-child(3) svg { color: var(--green); }
+.section--dark .value p { color: rgba(255, 255, 255, 0.75); }
+
+
+/* --------------------------------------------------------------------------
+   21. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  background: var(--charcoal);
+  color:      var(--white);
+  padding:    4rem 0 0;
+}
+
+.footer-inner {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   3rem;
+  padding-bottom:        3rem;
+}
+
+/* Footer logo is an <img> element with class .footer-logo */
+.footer-logo {
+  height:        44px;
+  width:         auto;
+  filter:        invert(1) brightness(2);
+  margin-bottom: 1rem;
+}
+
+.footer-col p {
+  font-size:     0.9375rem;
+  color:         rgba(255, 255, 255, 0.65);
+  margin-bottom: 0.5rem;
+  max-width:     none;
+}
+
+.footer-col h4 {
+  font-size:      0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color:          var(--orange);
+  margin-bottom:  1.25rem;
+}
+
+.footer-col ul {
+  display:        flex;
+  flex-direction: column;
+  gap:            0.625rem;
+}
+
+.footer-col ul a {
+  font-size:  0.9375rem;
+  color:      rgba(255, 255, 255, 0.6);
+  transition: color var(--transition);
+}
+
+.footer-col ul a:hover {
+  color: var(--orange);
+}
+
+.footer-col a {
+  color:      rgba(255, 255, 255, 0.65);
+  transition: color var(--transition);
+}
+
+.footer-col a:hover {
+  color: var(--orange);
+}
+
+/* Social links */
+.footer-socials {
+  display:    flex;
+  gap:        0.75rem;
+  margin-top: 1rem;
+  flex-wrap:  wrap;
+}
+
+.footer-socials a {
+  font-size:  0.875rem;
+  color:      rgba(255, 255, 255, 0.6);
+  transition: color var(--transition);
+}
+
+.footer-socials a:hover {
+  color: var(--orange);
+}
+
+/* Bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding:    1.25rem 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size:   0.8125rem;
+  color:       rgba(255, 255, 255, 0.4);
+  max-width:   none;
+  margin:      0 auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   22. CTA Banner
+   -------------------------------------------------------------------------- */
+.cta-banner {
+  position:   relative;
+  background: var(--charcoal);
+  color:      var(--white);
+  text-align: center;
+  padding:    5rem 0;
+  overflow:   hidden;
+}
+
+/* V1 touch: diagonal orange stripe via CSS gradient */
+.cta-banner::before {
+  content:    '';
+  position:   absolute;
+  top:        -60%;
+  right:      -10%;
+  width:      45%;
+  height:     250%;
+  background: var(--orange);
+  opacity:    0.12;
+  transform:  rotate(-15deg);
+  pointer-events: none;
+}
+
+.cta-banner .container {
+  position: relative;
+  z-index:  1;
+}
+
+.cta-banner h2 {
+  font-size:     var(--h2);
+  margin-bottom: 1rem;
+}
+
+.cta-banner p {
+  font-size:   1.0625rem;
+  color:       rgba(255, 255, 255, 0.8);
+  margin:      0 auto 2rem;
+  max-width:   52ch;
+}
+
+.cta-banner .cta-actions {
+  display:         flex;
+  gap:             1rem;
+  justify-content: center;
+  flex-wrap:       wrap;
+}
+
+
+/* --------------------------------------------------------------------------
+   23. Scroll Animations
+   -------------------------------------------------------------------------- */
+.fade-in {
+  opacity:   0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+/* Staggered delay utilities */
+.fade-in[data-delay="100"] { transition-delay: 0.1s; }
+.fade-in[data-delay="200"] { transition-delay: 0.2s; }
+.fade-in[data-delay="300"] { transition-delay: 0.3s; }
+.fade-in[data-delay="400"] { transition-delay: 0.4s; }
+.fade-in[data-delay="500"] { transition-delay: 0.5s; }
+
+
+/* --------------------------------------------------------------------------
+   24. Map
+   -------------------------------------------------------------------------- */
+.map-container {
+  border-radius: var(--radius);
+  overflow:      hidden;
+  aspect-ratio:  16 / 9;
+  width:         100%;
+}
+
+.map-container iframe {
+  width:   100%;
+  height:  100%;
+  border:  none;
+  display: block;
+}
+
+
+/* --------------------------------------------------------------------------
+   25. Label
+   -------------------------------------------------------------------------- */
+.label {
+  display:        inline-block;
+  font-size:      0.75rem;
+  font-weight:    600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color:          var(--orange);
+  margin-bottom:  0.5rem;
+}
+
+.label--blue   { color: var(--blue); }
+.label--green  { color: var(--green); }
+.label--yellow { color: var(--yellow); }
+
+
+/* --------------------------------------------------------------------------
+   26. Result Cards
+   -------------------------------------------------------------------------- */
+.result-card {
+  background:    var(--white);
+  border-radius: var(--radius);
+  padding:       1.5rem;
+  overflow:      hidden;
+  transition:    box-shadow var(--transition), transform var(--transition);
+}
+
+.result-card:hover {
+  transform:  translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.result-card img {
+  width:         100%;
+  height:        200px;
+  object-fit:    cover;
+  border-radius: calc(var(--radius) - 2px);
+  margin-bottom: 1rem;
+}
+
+.result-card h3 {
+  margin-bottom: 0.375rem;
+}
+
+.result-card p {
+  font-size: 0.9rem;
+  color:     var(--warm-grey);
+}
+
+.result-card .score {
+  font-family:   var(--font-heading);
+  font-size:     1.5rem;
+  font-weight:   700;
+  color:         var(--orange);
+  margin-bottom: 0.25rem;
+}
+
+.result-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap:                   1.5rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   27. Connect Links
+   -------------------------------------------------------------------------- */
+.connect-links {
+  display:        flex;
+  flex-direction: column;
+  gap:            0.875rem;
+}
+
+.connect-link {
+  display:         flex;
+  align-items:     center;
+  gap:             1.25rem;
+  padding:         1.25rem 1.5rem;
+  background:      var(--white);
+  border-radius:   var(--radius);
+  font-weight:     600;
+  font-size:       1rem;
+  color:           var(--charcoal);
+  transition:      background var(--transition), color var(--transition),
+                   transform var(--transition), box-shadow var(--transition);
+  border:          2px solid transparent;
+}
+
+.connect-link:hover {
+  background:   var(--orange);
+  color:        var(--white);
+  transform:    translateX(4px);
+  border-color: var(--orange);
+  box-shadow:   0 4px 16px rgba(242, 101, 34, 0.3);
+}
+
+.connect-link-icon {
+  width:       40px;
+  height:      40px;
+  flex-shrink: 0;
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+  background:  rgba(242, 101, 34, 0.1);
+  border-radius: 50%;
+  color:       var(--orange);
+  transition:  background var(--transition), color var(--transition);
+}
+
+.connect-link:hover .connect-link-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color:      var(--white);
+}
+
+.connect-link-label {
+  flex: 1;
+}
+
+.connect-link-arrow {
+  opacity:    0.4;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.connect-link:hover .connect-link-arrow {
+  opacity:   1;
+  transform: translateX(3px);
+}
+
+
+/* --------------------------------------------------------------------------
+   28. Image Utilities
+   -------------------------------------------------------------------------- */
+.img-rounded {
+  border-radius: var(--radius);
+}
+
+.img-shadow {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.img-cover {
+  width:       100%;
+  height:      100%;
+  object-fit:  cover;
+  display:     block;
+}
+
+
+/* --------------------------------------------------------------------------
+   29. Utility Classes
+   -------------------------------------------------------------------------- */
+.text-orange   { color:  var(--orange); }
+.text-white    { color:  var(--white); }
+.text-charcoal { color:  var(--charcoal); }
+.text-center   { text-align: center; }
+.text-left     { text-align: left; }
+
+.mt-1 { margin-top: 0.5rem;  }
+.mt-2 { margin-top: 1rem;    }
+.mt-3 { margin-top: 1.5rem;  }
+.mt-4 { margin-top: 2rem;    }
+.mt-6 { margin-top: 3rem;    }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem;   }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem;   }
+.mb-6 { margin-bottom: 3rem;   }
+
+.sr-only {
+  position:   absolute;
+  width:      1px;
+  height:     1px;
+  padding:    0;
+  margin:     -1px;
+  overflow:   hidden;
+  clip:       rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border:     0;
+}
+
+.visually-hidden {
+  composes: sr-only;
+}
+
+.w-full  { width:  100%; }
+.h-full  { height: 100%; }
+
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-wrap    { flex-wrap: wrap; }
+.gap-1        { gap: 0.5rem; }
+.gap-2        { gap: 1rem;   }
+.gap-3        { gap: 1.5rem; }
+.gap-4        { gap: 2rem;   }
+
+
+/* --------------------------------------------------------------------------
+   30. Responsive — 1024px breakpoint (tablets / small laptops)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --h1: 3rem;
+    --h2: 2rem;
+  }
+
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .values {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats-strip .container {
+    gap: 1.5rem;
+  }
+
+  .gallery-grid {
+    columns: 2;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   31. Responsive — 768px breakpoint (mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* --- Type scale --- */
+  :root {
+    --h1: 2.25rem;
+    --h2: 1.75rem;
+    --h3: 1.25rem;
+    --h4: 1.125rem;
+  }
+
+  /* --- Header / Nav --- */
+  .nav-list {
+    /* Handled by the mobile .nav block above */
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    min-height: 75vh;
+  }
+
+  .hero-content h1 {
+    font-size: var(--h1);
+  }
+
+  .hero--small {
+    min-height: 35vh;
+  }
+
+  /* --- Sections --- */
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  /* --- Stats strip --- */
+  .stats-strip .container {
+    grid-template-columns: 1fr;
+    gap:                   2rem;
+  }
+
+  /* --- Split layout --- */
+  .split {
+    grid-template-columns: 1fr;
+    gap:                   2rem;
+  }
+
+  .split--reverse > *:first-child,
+  .split--reverse > *:last-child {
+    order: unset;
+  }
+
+  .split-image img {
+    height: 280px;
+  }
+
+  /* --- Cards --- */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Mosaic --- */
+  .mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:    auto;
+  }
+
+  .mosaic img:first-child {
+    grid-column: 1 / 3;
+    grid-row:    auto;
+  }
+
+  /* --- Gallery --- */
+  .gallery-grid {
+    columns: 1;
+  }
+
+  /* --- Steps --- */
+  .steps {
+    grid-template-columns: 1fr;
+    gap:                   2.5rem;
+  }
+
+  /* --- Values --- */
+  .values {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Footer --- */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap:                   2rem;
+  }
+
+  /* --- CTA Banner --- */
+  .cta-banner {
+    padding: 3.5rem 0;
+  }
+
+  /* --- Event cards --- */
+  .event-card {
+    flex-direction: column;
+  }
+
+  .event-date {
+    width:     100%;
+    flex-direction: row;
+    gap:       0.75rem;
+    padding:   0.875rem 1.25rem;
+    justify-content: flex-start;
+  }
+
+  .event-day {
+    font-size: 1.75rem;
+  }
+
+  /* --- Result grid --- */
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Connect links --- */
+  .connect-link:hover {
+    transform: none;
+  }
+
+  /* --- Lightbox nav --- */
+  .lightbox-prev { left:  0; }
+  .lightbox-next { right: 0; }
+}
+
+
+/* --------------------------------------------------------------------------
+   32. Print
+   -------------------------------------------------------------------------- */
+@media print {
+  .header,
+  .nav-toggle,
+  .cta-banner,
+  .lightbox {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color:      black;
+  }
+
+  .hero {
+    min-height: auto;
+    padding:    2rem 0;
+  }
+}
