@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://cartellink.github.io',
-  base: '/jets-website',
+  base: '/',
   trailingSlash: 'never',
   build: { format: 'file' }
 });
